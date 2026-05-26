@@ -1066,8 +1066,25 @@ function calculatePreview(){
             ).value
         ) || 0;
 
-    const gov =
-        amount * .6;
+    const dateStr =
+        document.getElementById(
+            'date-input'
+        ).value;
+
+    const stats =
+        calculateStats(dateStr);
+
+    let gov =
+        Math.min(
+            amount * .6,
+            stats.dailyRemain,
+            stats.monthlyRemain
+        );
+
+    if(gov < 0){
+
+        gov = 0;
+    }
 
     const user =
         amount - gov;
