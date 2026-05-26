@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
 <title>ไทยช่วยไทยพลัส</title>
 
@@ -19,23 +19,14 @@
     --card:
         rgba(255,255,255,.72);
 
-    --card-solid:
-        #ffffff;
-
     --line:
-        rgba(255,255,255,.6);
-
-    --line-soft:
-        rgba(0,0,0,.05);
+        rgba(255,255,255,.7);
 
     --text:
         #0f172a;
 
     --muted:
         #64748b;
-
-    --black:
-        #020617;
 
     --blue:
         #2563eb;
@@ -45,21 +36,6 @@
 
     --green:
         #059669;
-
-    --shadow-xl:
-        0 20px 60px rgba(15,23,42,.10);
-
-    --shadow-card:
-        0 10px 30px rgba(15,23,42,.06);
-
-    --radius-xl:
-        34px;
-
-    --radius-lg:
-        28px;
-
-    --radius-md:
-        22px;
 }
 
 *{
@@ -69,17 +45,10 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
+
     font-family:
         Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
         sans-serif;
 
     background:var(--bg);
@@ -92,6 +61,7 @@ body{
 }
 
 body::before{
+
     content:"";
 
     position:fixed;
@@ -99,9 +69,8 @@ body::before{
     inset:0;
 
     background:
-        radial-gradient(circle at 10% 10%,rgba(59,130,246,.12),transparent 30%),
-        radial-gradient(circle at 90% 0%,rgba(124,58,237,.10),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(14,165,233,.08),transparent 35%);
+        radial-gradient(circle at 10% 10%,rgba(59,130,246,.10),transparent 30%),
+        radial-gradient(circle at 90% 0%,rgba(124,58,237,.08),transparent 30%);
 
     pointer-events:none;
 
@@ -109,18 +78,20 @@ body::before{
 }
 
 .app{
+
     width:100%;
-    max-width:460px;
+    max-width:480px;
 
     margin:auto;
 
-    padding:22px 16px 80px;
+    padding:20px 16px 80px;
 }
 
 .hero{
+
     position:relative;
 
-    padding:28px;
+    padding:30px;
 
     border-radius:40px;
 
@@ -128,40 +99,39 @@ body::before{
         linear-gradient(
             145deg,
             rgba(255,255,255,.88),
-            rgba(255,255,255,.55)
+            rgba(255,255,255,.58)
         );
-
-    border:1px solid rgba(255,255,255,.9);
 
     backdrop-filter:blur(24px);
 
-    -webkit-backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,.8);
 
-    box-shadow:var(--shadow-xl);
+    box-shadow:
+        0 20px 60px rgba(15,23,42,.08);
 
     overflow:hidden;
 
-    animation:heroEnter .9s cubic-bezier(.22,1,.36,1);
+    animation:fadeUp .8s ease;
 }
 
 .hero::after{
+
     content:"";
 
     position:absolute;
 
-    width:240px;
-    height:240px;
+    width:220px;
+    height:220px;
 
     right:-120px;
     top:-120px;
 
     background:
-        radial-gradient(circle,rgba(255,255,255,.9),transparent 70%);
-
-    opacity:.7;
+        radial-gradient(circle,rgba(255,255,255,.8),transparent 70%);
 }
 
 .badge{
+
     display:inline-flex;
 
     align-items:center;
@@ -172,7 +142,7 @@ body::before{
 
     border-radius:999px;
 
-    background:rgba(15,23,42,.92);
+    background:#111827;
 
     color:white;
 
@@ -180,25 +150,22 @@ body::before{
 
     font-weight:700;
 
-    letter-spacing:.08em;
-
     margin-bottom:20px;
-
-    box-shadow:
-        0 8px 24px rgba(15,23,42,.18);
 }
 
 .hero h1{
-    font-size:38px;
 
-    line-height:1;
+    font-size:38px;
 
     font-weight:800;
 
     letter-spacing:-0.05em;
+
+    line-height:1;
 }
 
 .hero p{
+
     margin-top:14px;
 
     color:var(--muted);
@@ -208,71 +175,108 @@ body::before{
     line-height:1.7;
 }
 
+.top-tabs{
+
+    display:flex;
+
+    gap:8px;
+
+    padding:8px;
+
+    margin-top:18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.7);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.06);
+}
+
+.tab-btn{
+
+    flex:1;
+
+    border:none;
+
+    background:transparent;
+
+    padding:14px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    color:#64748b;
+
+    transition:all .25s ease;
+
+    cursor:pointer;
+}
+
+.tab-btn.active{
+
+    background:#111827;
+
+    color:white;
+
+    box-shadow:
+        0 8px 20px rgba(17,24,39,.18);
+}
+
+.page-tab{
+
+    display:none;
+}
+
+.page-tab.active{
+
+    display:block;
+
+    animation:fadeUp .45s ease;
+}
+
 .section{
+
     margin-top:20px;
 }
 
-.grid{
-    display:grid;
-
-    gap:14px;
-}
-
 .card{
-    position:relative;
 
     padding:22px;
 
-    border-radius:var(--radius-lg);
+    border-radius:30px;
 
     background:var(--card);
 
-    backdrop-filter:blur(22px);
-
-    -webkit-backdrop-filter:blur(22px);
+    backdrop-filter:blur(24px);
 
     border:1px solid var(--line);
 
-    box-shadow:var(--shadow-card);
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.05);
 
-    overflow:hidden;
-
-    transition:
-        transform .35s cubic-bezier(.22,1,.36,1),
-        box-shadow .35s ease,
-        border-color .35s ease;
+    transition:all .25s ease;
 }
 
 .card:hover{
-    transform:translateY(-4px);
 
-    box-shadow:
-        0 18px 50px rgba(15,23,42,.12);
-}
-
-.card::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.5),
-            transparent
-        );
-
-    pointer-events:none;
+    transform:translateY(-2px);
 }
 
 .label{
+
     font-size:11px;
 
     text-transform:uppercase;
 
-    letter-spacing:.12em;
+    letter-spacing:.1em;
 
     color:#94a3b8;
 
@@ -282,113 +286,61 @@ body::before{
 }
 
 .stats{
+
     display:flex;
 
     justify-content:space-between;
 
-    gap:18px;
+    gap:16px;
 }
 
 .stat{
+
     flex:1;
 }
 
 .stat small{
+
     display:block;
 
     color:#94a3b8;
 
-    font-size:12px;
-
     margin-bottom:8px;
+
+    font-size:12px;
 }
 
 .stat h2{
+
     font-size:28px;
 
-    letter-spacing:-0.04em;
-
     font-weight:800;
+
+    letter-spacing:-0.05em;
 }
 
-.stat.blue h2{
+.blue{
+
     color:var(--blue);
 }
 
-.stat.purple h2{
+.purple{
+
     color:var(--purple);
 }
 
-.alert{
-    position:relative;
+.green{
 
-    display:flex;
-
-    gap:14px;
-
-    align-items:flex-start;
-
-    padding:18px;
-
-    border-radius:26px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.95),
-            rgba(255,255,255,.7)
-        );
-
-    border:1px solid rgba(255,255,255,.8);
-
-    box-shadow:var(--shadow-card);
-
-    overflow:hidden;
-
-    animation:fadeSlide .6s ease;
-}
-
-.alert-icon{
-    width:42px;
-    height:42px;
-
-    border-radius:16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#f8fafc;
-
-    font-size:18px;
-
-    flex-shrink:0;
-}
-
-.alert h4{
-    font-size:15px;
-    font-weight:700;
-}
-
-.alert p{
-    margin-top:4px;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.6;
-}
-
-.form-card{
-    padding:24px;
+    color:var(--green);
 }
 
 .field{
+
     margin-bottom:16px;
 }
 
 .field label{
+
     display:block;
 
     margin-bottom:10px;
@@ -397,10 +349,11 @@ body::before{
 
     color:#64748b;
 
-    font-weight:600;
+    font-weight:700;
 }
 
 .input{
+
     width:100%;
 
     border:none;
@@ -419,29 +372,29 @@ body::before{
 
     font-weight:600;
 
-    color:var(--text);
-
     transition:all .25s ease;
 }
 
 .input:focus{
+
     outline:none;
 
     transform:translateY(-1px);
 
     box-shadow:
-        inset 0 0 0 2px rgba(37,99,235,.4),
-        0 10px 30px rgba(37,99,235,.10);
+        inset 0 0 0 2px rgba(37,99,235,.35),
+        0 10px 30px rgba(37,99,235,.08);
 }
 
 .button{
+
     width:100%;
 
     border:none;
 
     cursor:pointer;
 
-    padding:17px 22px;
+    padding:17px;
 
     border-radius:24px;
 
@@ -458,55 +411,39 @@ body::before{
 
     font-size:15px;
 
-    letter-spacing:-0.02em;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    transition:all .25s ease;
 
     box-shadow:
-        0 14px 40px rgba(2,6,23,.25);
+        0 14px 30px rgba(2,6,23,.18);
 }
 
 .button:hover{
-    transform:translateY(-2px) scale(1.01);
+
+    transform:translateY(-2px);
 }
 
-.button:active{
-    transform:scale(.98);
-}
+.alert{
 
-.history-header{
-    display:flex;
+    padding:18px;
 
-    justify-content:space-between;
+    border-radius:24px;
 
-    align-items:center;
+    background:
+        rgba(255,255,255,.75);
 
-    margin-bottom:16px;
-}
+    backdrop-filter:blur(20px);
 
-.history-header h3{
-    font-size:16px;
+    border:1px solid rgba(255,255,255,.7);
 
-    letter-spacing:-0.03em;
-}
+    font-size:14px;
 
-.clear-btn{
-    border:none;
+    line-height:1.6;
 
-    background:none;
-
-    color:#ef4444;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    cursor:pointer;
+    color:#475569;
 }
 
 .history{
+
     display:flex;
 
     flex-direction:column;
@@ -515,32 +452,26 @@ body::before{
 }
 
 .tx{
-    position:relative;
 
     padding:18px;
 
     border-radius:24px;
 
     background:
-        rgba(255,255,255,.74);
+        rgba(255,255,255,.75);
 
     border:1px solid rgba(255,255,255,.7);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
     box-shadow:
-        0 10px 26px rgba(15,23,42,.05);
+        0 10px 24px rgba(15,23,42,.04);
 
-    transition:all .25s ease;
-
-    animation:fadeUp .45s ease;
-}
-
-.tx:hover{
-    transform:translateY(-2px);
+    animation:fadeUp .4s ease;
 }
 
 .tx-top{
+
     display:flex;
 
     justify-content:space-between;
@@ -550,31 +481,24 @@ body::before{
     margin-bottom:14px;
 }
 
-.tx-date{
-    font-size:13px;
-
-    font-weight:700;
-}
-
 .tx-price{
+
     font-size:20px;
 
     font-weight:800;
-
-    letter-spacing:-0.04em;
 }
 
 .tx-bottom{
+
     display:flex;
 
-    justify-content:space-between;
-
-    gap:12px;
+    gap:10px;
 
     flex-wrap:wrap;
 }
 
 .pill{
+
     padding:8px 12px;
 
     border-radius:999px;
@@ -585,80 +509,114 @@ body::before{
 }
 
 .pill-blue{
+
     background:rgba(37,99,235,.08);
+
     color:var(--blue);
 }
 
 .pill-green{
+
     background:rgba(5,150,105,.08);
+
     color:var(--green);
 }
 
 .delete{
+
     margin-top:14px;
 
     width:100%;
 
     border:none;
 
-    background:#fff5f5;
-
-    color:#dc2626;
-
     padding:12px;
 
     border-radius:18px;
 
+    background:#fff1f2;
+
+    color:#e11d48;
+
     font-weight:700;
 
     cursor:pointer;
-
-    transition:all .2s ease;
 }
 
-.delete:hover{
-    background:#fee2e2;
+.calc-result{
+
+    margin-top:18px;
+
+    display:grid;
+
+    gap:12px;
 }
 
-.empty{
-    text-align:center;
+.calc-box{
 
-    padding:50px 20px;
+    padding:20px;
+
+    border-radius:24px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    border:1px solid rgba(255,255,255,.7);
+}
+
+.calc-label{
+
+    font-size:12px;
 
     color:#94a3b8;
 
-    font-size:14px;
+    margin-bottom:10px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
 }
 
-@keyframes heroEnter{
-    from{
-        opacity:0;
-        transform:translateY(30px) scale(.96);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+.calc-value{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    letter-spacing:-0.05em;
+}
+
+.creator{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:#94a3b8;
+
+    font-size:12px;
+}
+
+.creator span{
+
+    color:#111827;
+
+    font-weight:700;
 }
 
 @keyframes fadeUp{
+
     from{
+
         opacity:0;
+
         transform:translateY(18px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
-@keyframes fadeSlide{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
     to{
+
         opacity:1;
+
         transform:translateY(0);
     }
 }
@@ -673,7 +631,7 @@ body::before{
     <section class="hero">
 
         <div class="badge">
-            ● SECURE LOCAL STORAGE
+            ● LOCAL STORAGE SECURED
         </div>
 
         <h1>
@@ -681,105 +639,193 @@ body::before{
         </h1>
 
         <p>
-            ระบบติดตามสิทธิรัฐช่วยจ่าย 60/40
+            ระบบช่วยคำนวณสิทธิรัฐช่วยจ่าย 60/40
+            อนุญาติให้ใช้งานฟรีเท่านั้น -ห้ามจำหน่าย-
         </p>
 
     </section>
 
-    <section class="section grid">
+    <div class="top-tabs">
 
-        <div class="card">
+        <button class="tab-btn active" onclick="switchTab(event,'dashboard')">
+            Dashboard
+        </button>
 
-            <div class="label">
-                สิทธิรายวัน
-            </div>
+        <button class="tab-btn" onclick="switchTab(event,'calculator')">
+            คำนวณก่อนซื้อ
+        </button>
 
-            <div class="stats">
+    </div>
 
-                <div class="stat">
-                    <small>ใช้ไปแล้ว</small>
-                    <h2 id="daily-used">0</h2>
+    <div id="dashboard" class="page-tab active">
+
+        <section class="section">
+
+            <div class="card">
+
+                <div class="label">
+                    สิทธิรายวัน
                 </div>
 
-                <div class="stat blue">
-                    <small>คงเหลือ</small>
-                    <h2 id="daily-remain">200</h2>
-                </div>
+                <div class="stats">
 
-            </div>
+                    <div class="stat">
+                        <small>ใช้ไปแล้ว</small>
+                        <h2 id="daily-used">0</h2>
+                    </div>
 
-        </div>
+                    <div class="stat">
+                        <small>คงเหลือ</small>
+                        <h2 class="blue" id="daily-remain">200</h2>
+                    </div>
 
-        <div class="card">
-
-            <div class="label">
-                สิทธิรายเดือน
-            </div>
-
-            <div class="stats">
-
-                <div class="stat">
-                    <small>ใช้ไปแล้ว</small>
-                    <h2 id="monthly-used">0</h2>
-                </div>
-
-                <div class="stat purple">
-                    <small>คงเหลือ</small>
-                    <h2 id="monthly-remain">1000</h2>
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <section class="section">
 
-    <section class="section">
+            <div class="card">
 
-        <div id="smart-alert"></div>
+                <div class="label">
+                    สิทธิรายเดือน
+                </div>
 
-    </section>
+                <div class="stats">
 
-    <section class="section">
+                    <div class="stat">
+                        <small>ใช้ไปแล้ว</small>
+                        <h2 id="monthly-used">0</h2>
+                    </div>
 
-        <div class="card form-card">
+                    <div class="stat">
+                        <small>คงเหลือ</small>
+                        <h2 class="purple" id="monthly-remain">1000</h2>
+                    </div>
 
-            <div class="field">
-                <label>วันที่ซื้อสินค้า</label>
-                <input type="date" id="date-input" class="input">
+                </div>
+
             </div>
 
-            <div class="field">
-                <label>ยอดซื้อสินค้า (บาท)</label>
-                <input
-                    type="number"
-                    id="amount-input"
-                    class="input"
-                    placeholder="เช่น 399"
-                >
+        </section>
+
+        <section class="section">
+
+            <div id="smart-alert"></div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="card">
+
+                <div class="field">
+
+                    <label>
+                        วันที่ซื้อสินค้า
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date-input"
+                        class="input"
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        ราคาสินค้า
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount-input"
+                        class="input"
+                        placeholder="เช่น 399"
+                    >
+
+                </div>
+
+                <button class="button" id="submit-btn">
+                    + บันทึกรายจ่าย
+                </button>
+
             </div>
 
-            <button class="button" id="submit-btn">
-                + บันทึกรายจ่าย
-            </button>
+        </section>
 
-        </div>
+        <section class="section">
 
-    </section>
+            <div class="history" id="history-list"></div>
 
-    <section class="section">
+        </section>
 
-        <div class="history-header">
-            <h3>ประวัติรายการ</h3>
+    </div>
 
-            <button class="clear-btn" onclick="clearData()">
-                ล้างทั้งหมด
-            </button>
-        </div>
+    <div id="calculator" class="page-tab">
 
-        <div class="history" id="history-list"></div>
+        <section class="section">
 
-    </section>
+            <div class="card">
+
+                <div class="field">
+
+                    <label>
+                        ราคาสินค้า
+                    </label>
+
+                    <input
+                        type="number"
+                        id="calc-input"
+                        class="input"
+                        placeholder="เช่น 399"
+                        oninput="calculatePreview()"
+                    >
+
+                </div>
+
+                <div class="calc-result">
+
+                    <div class="calc-box">
+
+                        <div class="calc-label">
+                            รัฐช่วยจ่าย
+                        </div>
+
+                        <div class="calc-value blue" id="gov-preview">
+                            ฿0
+                        </div>
+
+                    </div>
+
+                    <div class="calc-box">
+
+                        <div class="calc-label">
+                            เราจ่ายเอง
+                        </div>
+
+                        <div class="calc-value green" id="user-preview">
+                            ฿0
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="creator">
+        Crafted with precision by
+        <span>PreechaPEA</span>
+    </div>
 
 </div>
 
@@ -790,17 +836,22 @@ const GOV_MONTHLY_LIMIT = 1000;
 
 document.getElementById('date-input').valueAsDate = new Date();
 
-function getTransactions() {
+function getTransactions(){
 
     const data =
-        localStorage.getItem('gov_copay_ultra');
+        localStorage.getItem(
+            'gov_copay_ultra'
+        );
 
-    return data ? JSON.parse(data) : [];
+    return data
+        ? JSON.parse(data)
+        : [];
 }
 
 function saveTransaction(tx){
 
-    const data = getTransactions();
+    const data =
+        getTransactions();
 
     data.unshift(tx);
 
@@ -812,7 +863,8 @@ function saveTransaction(tx){
 
 function calculateStats(dateStr){
 
-    const data = getTransactions();
+    const data =
+        getTransactions();
 
     const month =
         dateStr.substring(0,7);
@@ -823,10 +875,12 @@ function calculateStats(dateStr){
     data.forEach(tx=>{
 
         if(tx.date === dateStr){
+
             daily += tx.govPaid;
         }
 
         if(tx.date.startsWith(month)){
+
             monthly += tx.govPaid;
         }
     });
@@ -862,13 +916,7 @@ function renderAlert(stats){
 
         box.innerHTML = `
             <div class="alert">
-                <div class="alert-icon">🛑</div>
-                <div>
-                    <h4>วงเงินรายเดือนหมดแล้ว</h4>
-                    <p>
-                        คุณใช้สิทธิรัฐครบ 1,000 บาทแล้ว
-                    </p>
-                </div>
+                🛑 คุณใช้สิทธิรายเดือนครบแล้ว
             </div>
         `;
 
@@ -876,35 +924,15 @@ function renderAlert(stats){
 
         box.innerHTML = `
             <div class="alert">
-                <div class="alert-icon">⚠️</div>
-                <div>
-                    <h4>สิทธิรายเดือนใกล้หมด</h4>
-                    <p>
-                        เหลืออีก
-                        ${stats.monthlyRemain.toFixed(2)}
-                        บาท
-                    </p>
-                </div>
-            </div>
-        `;
-
-    }else if(stats.dailyRemain <= 30){
-
-        box.innerHTML = `
-            <div class="alert">
-                <div class="alert-icon">🔔</div>
-                <div>
-                    <h4>สิทธิรายวันใกล้หมด</h4>
-                    <p>
-                        วันนี้เหลืออีก
-                        ${stats.dailyRemain.toFixed(2)}
-                        บาท
-                    </p>
-                </div>
+                ⚠️ สิทธิรายเดือนใกล้หมด
+                เหลืออีก
+                ${stats.monthlyRemain.toFixed(2)}
+                บาท
             </div>
         `;
 
     }else{
+
         box.innerHTML = '';
     }
 }
@@ -916,12 +944,13 @@ function renderHistory(){
             'history-list'
         );
 
-    const data = getTransactions();
+    const data =
+        getTransactions();
 
     if(data.length === 0){
 
         container.innerHTML = `
-            <div class="empty">
+            <div class="alert">
                 ยังไม่มีรายการในระบบ
             </div>
         `;
@@ -936,12 +965,12 @@ function renderHistory(){
 
             <div class="tx-top">
 
-                <div class="tx-date">
+                <div>
                     📅 ${tx.date}
                 </div>
 
                 <div class="tx-price">
-                    ฿${tx.amount.toLocaleString()}
+                    ฿${tx.amount.toFixed(2)}
                 </div>
 
             </div>
@@ -949,13 +978,11 @@ function renderHistory(){
             <div class="tx-bottom">
 
                 <div class="pill pill-blue">
-                    รัฐช่วย
-                    ฿${tx.govPaid.toFixed(2)}
+                    รัฐช่วย ฿${tx.govPaid.toFixed(2)}
                 </div>
 
                 <div class="pill pill-green">
-                    เราจ่าย
-                    ฿${tx.userPaid.toFixed(2)}
+                    เราจ่าย ฿${tx.userPaid.toFixed(2)}
                 </div>
 
             </div>
@@ -1007,6 +1034,55 @@ function updateUI(){
     renderHistory();
 }
 
+function switchTab(event,tab){
+
+    document
+        .querySelectorAll('.page-tab')
+        .forEach(el=>{
+
+            el.classList.remove('active');
+        });
+
+    document
+        .querySelectorAll('.tab-btn')
+        .forEach(el=>{
+
+            el.classList.remove('active');
+        });
+
+    document
+        .getElementById(tab)
+        .classList.add('active');
+
+    event.target.classList.add('active');
+}
+
+function calculatePreview(){
+
+    const amount =
+        parseFloat(
+            document.getElementById(
+                'calc-input'
+            ).value
+        ) || 0;
+
+    const gov =
+        amount * .6;
+
+    const user =
+        amount - gov;
+
+    document.getElementById(
+        'gov-preview'
+    ).innerText =
+        '฿' + gov.toFixed(2);
+
+    document.getElementById(
+        'user-preview'
+    ).innerText =
+        '฿' + user.toFixed(2);
+}
+
 document.getElementById(
     'submit-btn'
 ).addEventListener('click',()=>{
@@ -1024,6 +1100,7 @@ document.getElementById(
         );
 
     if(!dateStr || !amount || amount <=0){
+
         return;
     }
 
@@ -1038,6 +1115,7 @@ document.getElementById(
         );
 
     if(gov < 0){
+
         gov = 0;
     }
 
@@ -1066,10 +1144,12 @@ document.getElementById(
 function deleteTransaction(id){
 
     if(!confirm('ลบรายการนี้ใช่หรือไม่?')){
+
         return;
     }
 
-    let data = getTransactions();
+    let data =
+        getTransactions();
 
     data =
         data.filter(tx=>tx.id !== id);
@@ -1081,29 +1161,6 @@ function deleteTransaction(id){
 
     updateUI();
 }
-
-function clearData(){
-
-    if(
-        confirm(
-            'ล้างข้อมูลทั้งหมดใช่หรือไม่?'
-        )
-    ){
-
-        localStorage.removeItem(
-            'gov_copay_ultra'
-        );
-
-        updateUI();
-    }
-}
-
-document.getElementById(
-    'date-input'
-).addEventListener(
-    'change',
-    updateUI
-);
 
 updateUI();
 
